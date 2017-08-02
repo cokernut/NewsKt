@@ -70,7 +70,7 @@ class NewsAdapter(private val mContext: Activity, datas: ArrayList<NewModel>) : 
             }
             mOnItemClickLitener?.let{
                 holder.itemView.setOnClickListener(this)
-                holder.itemView.setTag(position)
+                holder.itemView.tag = position
             }
         }
     }
@@ -85,14 +85,8 @@ class NewsAdapter(private val mContext: Activity, datas: ArrayList<NewModel>) : 
 
 
     internal class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var title: TextView
-        var time: TextView
-        var img: ImageView
-
-        init {
-            title = itemView.findViewById<View>(R.id.title) as TextView
-            time = itemView.findViewById<View>(R.id.time) as TextView
-            img = itemView.findViewById<View>(R.id.img) as ImageView
-        }
+        var title: TextView = itemView.findViewById<View>(R.id.title) as TextView
+        var time: TextView = itemView.findViewById<View>(R.id.time) as TextView
+        var img: ImageView = itemView.findViewById<View>(R.id.img) as ImageView
     }
 }

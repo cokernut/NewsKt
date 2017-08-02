@@ -44,16 +44,16 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     fun initView() {
         val datas: ArrayList<URLModel> = URLConfig.getUrls()
-        var fragments: ArrayList<NewListFragment> = ArrayList<NewListFragment>()
+        val fragments: ArrayList<NewListFragment> = ArrayList<NewListFragment>()
         for (data in datas) {
-            var bundle: Bundle = Bundle()
+            val bundle: Bundle = Bundle()
             bundle.putString(NewListFragment.URL_STR, data.url)
-            var fragment = NewListFragment()
+            val fragment = NewListFragment()
             fragment.arguments = bundle
             fragments.add(fragment)
         }
 
-        var adapter = ViewPagerAdapter(this, getSupportFragmentManager(), datas, fragments)
+        val adapter = ViewPagerAdapter(this, supportFragmentManager, datas, fragments)
         viewpager.adapter = adapter
         tabLayout.tabMode = TabLayout.MODE_SCROLLABLE
         tabLayout.setupWithViewPager(viewpager)
@@ -71,14 +71,14 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
-                tab?.setCustomView(null)
-                tab?.setCustomView(adapter.getDefaultTabView(tab.position))
+                tab?.customView = null
+                tab?.customView = adapter.getDefaultTabView(tab!!.position)
             }
 
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                tab?.setCustomView(null)
-                tab?.setCustomView(adapter.getTabView(tab.position))
-                viewpager.currentItem = tab?.position!!
+                tab?.customView = null
+                tab?.customView = adapter.getTabView(tab!!.position)
+                viewpager.currentItem = tab.position
             }
         })
     }

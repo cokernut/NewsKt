@@ -15,7 +15,6 @@ import com.alibaba.fastjson.JSON
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
-import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_new_list.*
 import top.cokernut.newskt.R
@@ -119,12 +118,7 @@ class NewListFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
                     // 而如果在 doOnSubscribe() 之后有 subscribeOn() 的话，它将执行在离它最近的 subscribeOn() 所指定的线程
                     // 在 doOnSubscribe()的后面跟一个 subscribeOn() ，就能指定准备工作的线程了
                     .subscribeOn(Schedulers.io())
-                    .doOnSubscribe(object : Consumer<Disposable> {
-                        @Throws(Exception::class)
-                        override fun accept(disposable: Disposable) {
-                            isLoading = true
-                        }
-                    })
+                    .doOnSubscribe { isLoading = true }
                     .subscribeOn(AndroidSchedulers.mainThread())
                     //observeOn(): 指定 Subscriber 所运行在的线程,或者叫做事件消费的线程。observeOn() 指定的是它之后的操作所在的线程。
                     //因此如果有多次切换线程的需求，只要在每个想要切换线程的位置调用一次 observeOn() 即可
@@ -149,7 +143,7 @@ class NewListFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
                             } else {
                               Snackbar.make(rv, "没有更多了！", Snackbar.LENGTH_SHORT).show()
                             }
-                            srl.setRefreshing(false)
+                            srl.isRefreshing = false
                         }
 
                         override fun onError(e: Throwable) {

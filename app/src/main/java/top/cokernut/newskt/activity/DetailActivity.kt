@@ -1,5 +1,6 @@
 package top.cokernut.newskt.activity
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.view.Menu
@@ -9,6 +10,7 @@ import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.activity_detail.*
@@ -22,6 +24,7 @@ class DetailActivity : BaseActivity() {
     private var mUrl: String? = null
     private var mImgUrl: String? = null
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
@@ -49,8 +52,8 @@ class DetailActivity : BaseActivity() {
         webView.webViewClient = ViewClient()
         webView.loadUrl(mUrl)
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+            Snackbar.make(view, "提示信息", Snackbar.LENGTH_LONG)
+                    .setAction("动作", {Toast.makeText(this@DetailActivity, "使用了动作", Toast.LENGTH_SHORT).show()}).show()
         }
     }
 
