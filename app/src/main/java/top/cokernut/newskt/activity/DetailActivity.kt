@@ -1,12 +1,7 @@
 package top.cokernut.newskt.activity
 
-import android.graphics.Bitmap
 import android.os.Bundle
-import android.support.design.widget.CollapsingToolbarLayout
-import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
-import android.support.v7.widget.Toolbar
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -14,15 +9,10 @@ import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.ImageView
-import android.widget.TextView
-
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.content_detail.*
-
 import top.cokernut.newskt.R
 import top.cokernut.newskt.base.BaseActivity
 
@@ -67,13 +57,11 @@ class DetailActivity : BaseActivity() {
     private inner class ChromeClient : WebChromeClient() {
         override fun onProgressChanged(view: WebView, newProgress: Int) {
             super.onProgressChanged(view, newProgress)
-            Log.d("newProgress--->", newProgress.toString() + "")
-            // TODO load
-            if (newProgress == 100) {
+           /* if (newProgress == 100) {
 
             } else if (newProgress != 100) {
 
-            }
+            }*/
         }
 
         override fun onShowCustomView(view: View, callback: WebChromeClient.CustomViewCallback) {
@@ -82,7 +70,7 @@ class DetailActivity : BaseActivity() {
 
         override fun onReceivedTitle(view: WebView, title: String?) {
             super.onReceivedTitle(view, title)
-            if (title != null) {
+            title?.let {
                 toolbar_layout.title = title
             }
         }
@@ -90,7 +78,9 @@ class DetailActivity : BaseActivity() {
 
     private inner class ViewClient : WebViewClient() {
         override fun shouldOverrideUrlLoading(view: WebView, url: String?): Boolean {
-            if (url != null) view.loadUrl(url)
+            url?.let {
+                view.loadUrl(url)
+            }
             return true
         }
     }

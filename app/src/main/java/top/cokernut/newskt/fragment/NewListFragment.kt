@@ -75,7 +75,7 @@ class NewListFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
                 isTop = true
             }
         })
-        mAdapter!!.setOnItemClickLitener(object : NewsAdapter.OnItemClickLitener {
+        mAdapter?.setOnItemClickLitener(object : NewsAdapter.OnItemClickLitener {
             override fun onItemClick(view: View, position: Int) {
                 val intent = Intent(activity, DetailActivity().javaClass)
                 intent.putExtra(DetailActivity.URL_STR, mDatas[position].url)
@@ -100,15 +100,6 @@ class NewListFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
     fun getData() {
         if (!isLoading) {
-           /* var i = 1
-            do {
-                val model = NewModel("2017-08-02 07:09", "小米6C配新款澎湃X1处理器  隐藏式双摄1999元起售", "腾讯科技", "http://inews.gtimg.com/newsapp_ls/0/1868807009_300240/0", "http://digi.tech.qq.com/a/20170802/003841.htm")
-                mDatas.add(model)
-                i++
-            } while (i > 10)
-            mAdapter?.setDatas(mDatas)
-            srl.setRefreshing(false)
-            isLoading = false*/
             val params = HashMap<String, Any>()
             params.put("key", URLConfig.API_KEY)
             params.put("num", pageSize)
@@ -147,7 +138,7 @@ class NewListFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
                         override fun onNext(s: String) {
                             if (TextUtils.isEmpty(s)) {
-                                disposable!!.dispose()//当s为空时解除订阅
+                                disposable?.dispose()//当s为空时解除订阅
                             }
                             val json = JSON.parseObject(s)
                             val result = JSON.parseArray(json.getString("newslist"), NewModel::class.java)

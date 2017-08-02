@@ -29,8 +29,8 @@ class NewsAdapter(private val mContext: Activity, datas: ArrayList<NewModel>) : 
     }
 
     override fun onClick(view: View) {
-        if (mOnItemClickLitener != null) {
-            mOnItemClickLitener!!.onItemClick(view, view.tag as Int)
+        mOnItemClickLitener?.let {
+            mOnItemClickLitener?.onItemClick(view, view.tag as Int)
         }
     }
 
