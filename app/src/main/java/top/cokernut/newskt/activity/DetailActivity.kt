@@ -19,10 +19,7 @@ import top.cokernut.newskt.R
 import top.cokernut.newskt.base.BaseActivity
 
 
-class DetailActivity : BaseActivity() {
-
-    private var mUrl: String? = null
-    private var mImgUrl: String? = null
+class DetailActivity(private var mUrl: String? = null, private var mImgUrl: String? = null) : BaseActivity() {
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
