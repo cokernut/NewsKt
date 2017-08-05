@@ -3,17 +3,15 @@ package top.cokernut.newskt.base
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 
-abstract class OnRVScrollListener : RecyclerView.OnScrollListener() {
-
-    /**
-     * 最后一个可见的item的位置
-     */
-    private var lastVisibleItemPosition: Int = 0
-
-    /**
-     * 第一个可见的item的位置
-     */
-    private var firstVisibleItemPosition: Int = 0
+abstract class OnRVScrollListener(
+        /**
+         * 最后一个可见的item的位置
+         */
+        private var lastVisibleItemPosition: Int = 0,
+        /**
+         * 第一个可见的item的位置
+         */
+        private var firstVisibleItemPosition: Int = 0) : RecyclerView.OnScrollListener() {
 
     override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
         super.onScrolled(recyclerView, dx, dy)
