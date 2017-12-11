@@ -44,7 +44,7 @@ object URLConfig {
 
     private val urls = ArrayList<URLModel>()
     val BASE_URL = "http://api.tianapi.com/"
-    val API_KEY = "fc7d0977e4da244cfa45cb10a483f745"
+    val API_KEY = "fc7483f745"
 
     init {
         urls.add(URLModel("科技新闻", "keji"))
