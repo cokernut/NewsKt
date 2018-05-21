@@ -42,12 +42,12 @@ class NewListFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (arguments != null) {
-            urlStr = arguments.getString(URL_STR)
+            urlStr = arguments!!.getString(URL_STR)
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var view = inflater!!.inflate(R.layout.fragment_new_list, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        var view = inflater.inflate(R.layout.fragment_new_list, container, false)
         return view
     }
 
@@ -62,7 +62,7 @@ class NewListFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         srl.setOnRefreshListener(this)
         rv.layoutManager = LinearLayoutManager(this.activity)
         rv.itemAnimator = DefaultItemAnimator()
-        mAdapter = NewsAdapter(activity, mDatas)
+        mAdapter = NewsAdapter(this.activity!!, mDatas)
         rv.adapter = mAdapter
 
         rv.addOnScrollListener(object : OnRVScrollListener() {
@@ -100,9 +100,9 @@ class NewListFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
     fun getData() {
         if (!isLoading) {
             val params = HashMap<String, Any>()
-            params.put("key", URLConfig.API_KEY)
-            params.put("num", pageSize)
-            params.put("page", pageIndex)
+            params["key"] = URLConfig.API_KEY
+            params["num"] = pageSize
+            params["page"] = pageIndex
             //RxJava
             /**
             Schedulers.immediate(): 直接在当前线程运行，相当于不指定线程。这是默认的 Scheduler。
@@ -154,7 +154,6 @@ class NewListFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
                             isLoading = false
                         }
                     })
-
         }
     }
 }

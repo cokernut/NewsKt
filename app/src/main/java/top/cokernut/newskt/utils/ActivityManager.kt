@@ -9,7 +9,7 @@ import java.util.*
 class ActivityManager private constructor() {
 
     fun popActivity() {
-        var activity: AppCompatActivity? = activityStack?.lastElement()
+        val activity: AppCompatActivity? = activityStack?.lastElement()
         activity?.finish()
     }
 

@@ -1,0 +1,25 @@
+package top.cokernut.newskt.utils;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import top.cokernut.newskt.NewsApp;
+/**
+ * 用来快速获取相关的设置
+ */
+public class PrefUtils {
+
+    private static final String PRE_NAME = "me.itangqi.buildingblocks_preferences";
+
+
+    public static final String PRE_AUTO_UPDATE = "auto_update";
+
+
+    private static SharedPreferences getSharedPreferences() {
+        return NewsApp.Companion.getInstance().getSharedPreferences(PRE_NAME, Context.MODE_PRIVATE);
+    }
+
+    public static boolean isAutoUpdate() {
+        return getSharedPreferences().getBoolean(PRE_AUTO_UPDATE, false);
+    }
+}

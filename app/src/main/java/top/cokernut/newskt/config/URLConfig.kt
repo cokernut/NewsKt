@@ -17,13 +17,6 @@ object URLConfig {
      * "msg": "ok",
      * "newslist": [
      * {
-     * "ctime": "2015-07-17",
-     * "title": "那个抱走王明涵的，你上微信吗？看完这个你会心软吗？",
-     * "description": "中国传统文化",
-     * "picUrl": "http://zxpic.gtimg.com/infonew/0/wechat_pics_-667708.jpg/640",
-     * "url": "http://mp.weixin.qq.com/s?__biz=MzA3OTg2NjEwNg==&amp;idx=5&amp;mid=209313388&amp;sn=7e30bd2851d22f69580e202c31fc7ecf"
-     * },
-     * {
      * "ctime": "2015-06-12",
      * "title": "深悦地产风云榜丨房地产微信公众号一周榜单",
      * "description": "深悦会",
@@ -44,7 +37,7 @@ object URLConfig {
 
     private val urls = ArrayList<URLModel>()
     val BASE_URL = "http://api.tianapi.com/"
-    val API_KEY = "fc7483f745"
+    val API_KEY = "cfa45cb10a483f745" //fc7d0977e4da244
 
     init {
         urls.add(URLModel("科技新闻", "keji"))

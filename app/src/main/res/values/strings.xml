@@ -8,4 +8,87 @@
     <string name="title_activity_detail">DetailActivity</string>
     <string name="detail_img">图片</string>
     <string name="detail_title">详细内容</string>
+
+
+        <string name="title_activity_settings">设置</string>
+
+        <string name="pref_header_general">General</string>
+
+        <string name="pref_title_social_recommendations">Enable social recommendations</string>
+        <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+        <string name="pref_title_display_name">显示名称</string>
+        <string name="pref_default_display_name">Cokernut</string>
+
+        <string name="pref_title_add_friends_to_messages">加朋友消息</string>
+        <string-array name="pref_example_list_titles">
+            <item>总是</item>
+            <item>从不</item>
+        </string-array>
+        <string-array name="pref_example_list_values">
+            <item>1</item>
+            <item>-1</item>
+        </string-array>
+
+        <!-- Example settings for Data & Sync -->
+        <string name="pref_header_data_sync">Data &amp; sync</string>
+
+        <string name="pref_title_sync_frequency">Sync frequency</string>
+        <string-array name="pref_sync_frequency_titles">
+            <item>15 minutes</item>
+            <item>30 minutes</item>
+            <item>1 hour</item>
+            <item>3 hours</item>
+            <item>6 hours</item>
+            <item>Never</item>
+        </string-array>
+        <string-array name="pref_sync_frequency_values">
+            <item>15</item>
+            <item>30</item>
+            <item>60</item>
+            <item>180</item>
+            <item>360</item>
+            <item>-1</item>
+        </string-array>
+
+        <string name="pref_title_system_sync_settings">System sync settings</string>
+
+        <!-- Example settings for Notifications -->
+        <string name="pref_header_notifications">Notifications</string>
+
+        <string name="pref_title_new_message_notifications">New message notifications</string>
+
+        <string name="pref_title_ringtone">Ringtone</string>
+        <string name="pref_ringtone_silent">Silent</string>
+
+        <string name="pref_title_vibrate">Vibrate</string>
+        <string name="activity_image">图片</string>
+
+        <string name="about_introduce">
+        新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯
+        新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯新闻资讯
+    </string>
+        <string name="about_menu_action_share">分享</string>
+        <string name="about_share_text">新闻资讯</string>
+        <string name="about_app_name_with_introduce">新闻资讯</string>
+        <string name="about_developers">关于我</string>
+        <string name="about_developer_description">
+        新闻资讯新闻资讯新闻资讯新闻资讯
+    </string>
+        <string name="about_title">关于</string>
+        <string name="about">关于</string>
+
+        <string name="settings">设置</string>
+        <string name="about_introduce_and_help">介绍</string>
+        <string name="search_hint">搜索</string>
+        <string name="search_result_title">搜索</string>
+        <string name="title_activity_main2">Main2Activity</string>
+        <string name="section_format">Hello World from section: %1$d</string>
+
+        <string name="cancel">取消</string>
+        <string name="dislike">不喜欢</string>
+        <string name="like">喜欢</string>
+
 </resources>

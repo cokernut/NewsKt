@@ -1,5 +1,6 @@
 package top.cokernut.newskt.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
@@ -58,7 +59,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         tabLayout.tabMode = TabLayout.MODE_SCROLLABLE
         tabLayout.setupWithViewPager(viewpager)
         for (i in 0 until tabLayout.tabCount) {
-            var tab: TabLayout.Tab = tabLayout.getTabAt(i) as TabLayout.Tab
+            val tab: TabLayout.Tab = tabLayout.getTabAt(i) as TabLayout.Tab
             if (i == 0) {
                 tab.customView = adapter.getTabView(i)
             } else {
@@ -97,29 +98,24 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.action_settings -> return true
-            else -> return super.onOptionsItemSelected(item)
+        return when (item.itemId) {
+            R.id.action_settings -> {
+                startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_camera -> {
+            R.id.nav_setting -> {
+                startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
             }
-            R.id.nav_gallery -> {
-
-            }
-            R.id.nav_slideshow -> {
-
-            }
-            R.id.nav_manage -> {
-
+            R.id.nav_about -> {
+                startActivity(Intent(this@MainActivity, AboutActivity::class.java))
             }
             R.id.nav_share -> {
-
-            }
-            R.id.nav_send -> {
 
             }
         }

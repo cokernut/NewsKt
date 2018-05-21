@@ -8,10 +8,6 @@ import okhttp3.ResponseBody;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
 
-/**
- * Created by Administrator on 2017/7/20.
- */
-
 public class FastJsonConverterFactory extends Converter.Factory {
     public static FastJsonConverterFactory create() {
         return new FastJsonConverterFactory();
